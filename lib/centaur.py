@@ -31,10 +31,10 @@ class Centaur:
         return not self.standing
 
     def sleep(self):
-        if self.standing:
+        if self.is_standing():
             return 'NO!'
-        else:
-            self.crank_counter = 0
+        self.crank_counter = 0
+        return None
 
     def lay_down(self):
         self.standing = False
@@ -45,7 +45,6 @@ class Centaur:
     def drink_potion(self):
         if not self.is_cranky() and self.is_standing():
             return "Now I'm sick"
-        elif self.is_standing():
+        if self.is_standing():
             self.crank_counter = 0
-        else:
-            return "Can't, I'm laying"
+        return "Can't, I'm laying"
